@@ -36,13 +36,16 @@
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
     "express-jwt": "^5.0.0",
+    "gulp-sequelize": "0.0.2",
     "jsonwebtoken": "^7.1.9",
     "lodash": "^4.16.2",
     "method-override": "^2.3.6",
     "morgan": "^1.7.0",
+    "mysql": "^2.11.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "q": "^1.4.1",
-    "sequelize": "^3.24.3"
+    "sequelize": "^3.24.3",
+    "umzug": "^1.11.0"
   }
 }

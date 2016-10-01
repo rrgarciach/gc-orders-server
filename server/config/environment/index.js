@@ -14,10 +14,10 @@ let all = {
         SESSION: 'orders-secret'
     },
 
-    SEED_DB: false
+    SEED_DB: false, // value by default (can be overridden in local.env.js)
 };
 
 module.exports = _.merge(
-    all
-    // require(`./${process.env.NODE_ENV}.js`)
+    all,
+    require(`./${process.env.NODE_ENV}.js`)
 );

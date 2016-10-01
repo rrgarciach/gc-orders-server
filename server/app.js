@@ -18,6 +18,13 @@ function startServer() {
 }
 
 startServer();
+require('./sqldb/migrate').up()
+    .then(() => {
+        console.log('Sequelize migrations successfully executed.');
+    })
+    .catch(err => {
+        console.log('Server failed to start due to error: %s', err);
+    });
 
 // Expose app
 module.exports = app;
