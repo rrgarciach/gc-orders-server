@@ -35,7 +35,7 @@ function setup(userService, config) {
             usernameField: 'email',
             passwordField: 'password' // this is the virtual field on the model
         },
-        (email, password, done) => {
+        function (email, password, done) {
             return localAuthenticate(userService, email, password, done);
         }));
 }

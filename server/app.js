@@ -20,4 +20,4 @@ function startServer() {
 startServer();
 
 // Expose app
-exports = module.exports = app;
+module.exports = app;

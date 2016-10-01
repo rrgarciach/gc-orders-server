@@ -1,30 +1,34 @@
 'use strict';
 
 let User = require('./user.model');
+let q = require('q');
 
 let userService = {
     getById,
     getByEmail,
 };
 
-function getById(userId) {
-    return {
-        _id: userId,
-        email: 'user@example.com',
-        role: {
-            name: 'sales'
-        }
+let mockUser = {
+    _id: 1,
+    email: 'user@example.com',
+    role: {
+        name: 'sales'
+    },
+    authenticate: function (pass, cb) {
+        return cb(false, true);
     }
+};
+
+function getById(userId) {
+    let deferred = q.defer();
+    deferred.resolve(mockUser);
+    return deferred.promise;
 }
 
 function getByEmail(userEmail) {
-    return {
-        _id: 1,
-        email: userEmail,
-        role: {
-            name: 'sales'
-        }
-    }
+    let deferred = q.defer();
+    deferred.resolve(mockUser);
+    return deferred.promise;
 }
 
 module.exports = userService;
