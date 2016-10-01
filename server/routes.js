@@ -3,6 +3,6 @@ const path = require('path');
 
 module.exports = function(app) {
     // app.use(cors());
-    app.use('/', function (req, res) { res.json({message:'ok'})});
-    app.use('/api/v1/orders', function () {});
+    // app.use('/', function (req, res) { res.json({message:'ok'})});
+    app.use('/api/v1/auth', require('./auth'));
 };

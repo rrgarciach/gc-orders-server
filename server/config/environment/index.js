@@ -10,6 +10,10 @@ let all = {
 
     IP: process.env.IP || '0.0.0.0',
 
+    SECRETS: {
+        SESSION: 'orders-secret'
+    },
+
     SEED_DB: false
 };
 

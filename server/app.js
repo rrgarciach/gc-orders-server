@@ -7,6 +7,7 @@ const CONFIG = require('./config/environment');
 var app = express();
 var server = http.createServer(app);
 
+require('./config/express')(app);
 require('./routes')(app);
 
 // Start server function
