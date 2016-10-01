@@ -1,7 +1,8 @@
-import path from 'path';
-// import cors from 'cors';
+const path = require('path');
+// let cors = require('cors');
 
-export default function(app) {
+module.exports = function(app) {
     // app.use(cors());
-    app.use('/')
-}
+    app.use('/', function (req, res) { res.json({message:'ok'})});
+    app.use('/api/v1/orders', function () {});
+};

@@ -38,3 +38,9 @@ jspm_packages
 
 # WebStorm stuff
 .idea/
+
+# Environment variables
+server/config/local.env.js
+server/config/testing.env.js
+server/config/staging.env.js
+server/config/production.env.js
