@@ -1,0 +1,24 @@
+{
+  "name": "jupiter-orders-monolith",
+  "version": "1.0.0",
+  "description": "Jupiter API Orders monolith module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rrgarciach/jupiter-orders-monolith.git"
+  },
+  "keywords": [],
+  "author": "Ruy R. Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rrgarciach/jupiter-orders-monolith/issues"
+  },
+  "engines": {
+    "node": "^4.4.0",
+    "npm": "^2.14.20"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/rrgarciach/jupiter-orders-monolith#readme"
+}
