@@ -1,16 +1,16 @@
 {
-  "name": "jupiter-orders-monolith",
+  "name": "gc-orders-server",
   "version": "1.0.0",
-  "description": "Jupiter API Orders monolith module",
+  "description": "GC Orders server",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rrgarciach/jupiter-orders-monolith.git"
+    "url": "git+https://github.com/rrgarciach/gc-orders-server.git"
   },
   "keywords": [],
   "author": "Ruy R. Garcia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rrgarciach/jupiter-orders-monolith/issues"
+    "url": "https://github.com/rrgarciach/gc-orders-server/issues"
   },
   "engines": {
     "node": "^4.4.0",
@@ -18,7 +18,13 @@
   },
   "main": "index.js",
   "scripts": {
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/rrgarciach/jupiter-orders-monolith#readme"
+  "homepage": "https://github.com/rrgarciach/gc-orders-server#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-build-control": "^0.7.1",
+    "gulp": "^3.9.1"
+  }
 }
