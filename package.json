@@ -1,6 +1,6 @@
 {
   "name": "gc-orders-server",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "GC Orders server",
   "repository": {
     "type": "git",
