@@ -2,8 +2,6 @@
 
 let q = require('q');
 let models = require('../server/sqldb');
-let User = models.User;
-let Profile = models.Profile;
 let Role = models.Role;
 
 module.exports = {
@@ -27,9 +25,11 @@ module.exports = {
 
     down: function (queryInterface, Sequelize) {
         console.info('Removing Roles...');
-        return Profile.destroy({
+        return Roles.destroy({
             where: {
-                _id: 1
+                _id: {
+                    $in: [1, 2, 3, 4, 5]
+                }
             }
         })
             .then(() => {
