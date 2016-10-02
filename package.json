@@ -12,10 +12,6 @@
   "bugs": {
     "url": "https://github.com/rrgarciach/gc-orders-server/issues"
   },
-  "engines": {
-    "node": "^5.3.0",
-    "npm": "^3.8.6"
-  },
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",

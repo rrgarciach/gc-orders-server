@@ -26,15 +26,10 @@ grunt.initConfig({
 
 grunt.loadNpmTasks('grunt-build-control');
 
-gulp.task('deploy', (target, done) => {
-    switch (target) {
-        case 'testing':
-        default:
-            grunt.tasks(
-                ['buildcontrol:testing'],    //you can add more grunt tasks in this array
-                {gruntfile: false}, //don't look for a Gruntfile - there is none. :-)
-                () => {done();}
-            );
-            break;
-    }
+gulp.task('deploy', done => {
+    grunt.tasks(
+        ['buildcontrol:testing'],    //you can add more grunt tasks in this array
+        {gruntfile: false}, //don't look for a Gruntfile - there is none. :-)
+        () => {done();}
+    );
 });
