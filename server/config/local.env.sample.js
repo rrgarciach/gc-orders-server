@@ -7,10 +7,10 @@ module.exports = {
 
     // your local MySQL credentials
     SEQUELIZE: {
-        MYSQL_USERNAME: '',
-        MYSQL_PASSWORD: '',
-        MYSQL_DB: 'gc_orders', // DON'T CHANGE THIS
-        MYSQL_HOST: ''
+        MYSQL_USERNAME: 'string',
+        MYSQL_PASSWORD: 'string',
+        MYSQL_DB: 'string',
+        MYSQL_HOST: 'string'
     }
 
 };

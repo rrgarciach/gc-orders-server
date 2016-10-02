@@ -10,7 +10,12 @@ let sequelize;
 if (DB_CONFIG.use_env_variable) {
   sequelize = new Sequelize(process.env[DB_CONFIG.use_env_variable]);
 } else {
-  sequelize = new Sequelize(DB_CONFIG.database, DB_CONFIG.username, DB_CONFIG.password, DB_CONFIG.options);
+  sequelize = new Sequelize(
+      CONFIG.SEQUELIZE.DATABASE,
+      CONFIG.SEQUELIZE.USERNAME,
+      CONFIG.SEQUELIZE.PASSWORD,
+      CONFIG.SEQUELIZE.OPTIONS
+  )
 }
 
 const gulpSequelize = require('gulp-sequelize')(sequelize);

@@ -1,21 +1,23 @@
 'use strict';
 
 let path = require('path');
-let CONFIG = require('../config/environment');
 let Sequelize = require('sequelize');
+const CONFIG = require('../config/environment');
 
 var db = {
     Sequelize,
     sequelize: new Sequelize(
-        CONFIG.SEQUELIZE.MYSQL_DB,
-        CONFIG.SEQUELIZE.MYSQL_USERNAME,
-        CONFIG.SEQUELIZE.MYSQL_PASSWORD,
-        config.sequelize.options
+        CONFIG.SEQUELIZE.DATABASE,
+        CONFIG.SEQUELIZE.USERNAME,
+        CONFIG.SEQUELIZE.PASSWORD,
+        CONFIG.SEQUELIZE.OPTIONS
     )
 };
 
 // Insert Sequelize models below:
-db.Academy = db.sequelize.import('../api/user/user.model');
+db.User = db.sequelize.import('../api/user/user.model');
+db.Profile = db.sequelize.import('../api/profile/profile.model');
+db.Role = db.sequelize.import('../api/role/role.model');
 
 // Register associations for each model (if it does applies):
 Object.keys(db).forEach(function (modelName) {
