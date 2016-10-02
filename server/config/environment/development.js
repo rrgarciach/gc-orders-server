@@ -13,11 +13,11 @@ module.exports = {
         USERNAME: DB_CONFIG.MYSQL_USERNAME,
         PASSWORD: DB_CONFIG.MYSQL_PASSWORD,
         OPTIONS: {
-            DAILECT: 'mysql',
-            LOGGING: console.info,
-            HOST: DB_CONFIG.MYSQL_HOST,
-            DEFINE: {
-                TIMESTAMPS: false
+            dialect: 'mysql',
+            logging: console.info,
+            host: DB_CONFIG.MYSQL_HOST,
+            define: {
+                timestamps: false
             }
         }
     },
