@@ -26,7 +26,7 @@ grunt.initConfig({
 
 grunt.loadNpmTasks('grunt-build-control');
 
-gulp.task('deploy', target => {
+gulp.task('deploy', (target, done) => {
     switch (target) {
         case 'testing':
         default:
