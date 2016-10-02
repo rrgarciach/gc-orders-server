@@ -1,3 +1,5 @@
+'use strict';
+
 let path = require('path');
 let cors = require('cors');
 
