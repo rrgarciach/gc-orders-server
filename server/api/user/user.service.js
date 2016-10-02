@@ -1,34 +1,48 @@
 'use strict';
 
-let User = require('./user.model');
-let q = require('q');
+let models = require('../../sqldb');
+let User = models.User;
+let Role = models.Role;
+let Profile = models.Profile;
 
 let userService = {
     getById,
     getByEmail,
 };
 
-let mockUser = {
-    _id: 1,
-    email: 'user@example.com',
-    role: {
-        name: 'sales'
-    },
-    authenticate: function (pass, cb) {
-        return cb(false, true);
-    }
-};
-
 function getById(userId) {
-    let deferred = q.defer();
-    deferred.resolve(mockUser);
-    return deferred.promise;
+    return User.findOne({
+        where: {_id: userId},
+        include: [
+            {
+                model: Role,
+                attributes: ['name'],
+                as: 'role'
+            }, {
+                model: Profile,
+                attributes: ['first_name'],
+                as: 'profile'
+            }
+        ]
+    });
 }
 
 function getByEmail(userEmail) {
-    let deferred = q.defer();
-    deferred.resolve(mockUser);
-    return deferred.promise;
+    console.log(User)
+    return User.findOne({
+        where: {email: userEmail},
+        include: [
+            {
+                model: Role,
+                attributes: ['name'],
+                as: 'role'
+            }, {
+                model: Profile,
+                attributes: ['first_name'],
+                as: 'profile'
+            }
+        ]
+    });
 }
 
 module.exports = userService;

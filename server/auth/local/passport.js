@@ -26,6 +26,7 @@ function localAuthenticate(userService, email, password, done) {
             });
         })
         .catch(err => {
+            console.log('ERROR!');
             done(err)
         });
 }
