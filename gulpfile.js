@@ -1,7 +1,7 @@
 'use strict';
 
-import gulp from 'gulp';
-import grunt from 'grunt';
+const gulp = require('gulp');
+const grunt = require('grunt');
 
 const serverPath = 'server';
 const paths = {};
@@ -9,7 +9,7 @@ const paths = {};
 grunt.initConfig({
     buildcontrol: {
         options: {
-            dir: serverPath,
+            dir: './',
             commit: true,
             push: true,
             connectCommits: false,
@@ -30,7 +30,11 @@ gulp.task('deploy', target => {
     switch (target) {
         case 'testing':
         default:
-            runSequence('buildcontrol:testing');
+            grunt.tasks(
+                ['buildcontrol:testing'],    //you can add more grunt tasks in this array
+                {gruntfile: false}, //don't look for a Gruntfile - there is none. :-)
+                () => {done();}
+            );
             break;
     }
 });
