@@ -44,3 +44,6 @@ server/config/local.env.js
 server/config/testing.env.js
 server/config/staging.env.js
 server/config/production.env.js
+
+# Distribution
+dist/
