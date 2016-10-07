@@ -5,8 +5,9 @@ let Sequelize = require('sequelize');
 
 const CONFIG = require('../config/environment');
 const DB_CONFIG = CONFIG.SEQUELIZE;
-console.log('SEQUELIZE PARAMS!!!!', CONFIG.SEQUELIZE)
+
 let sequelize;
+
 if (DB_CONFIG.use_env_variable) {
   sequelize = new Sequelize(process.env[DB_CONFIG.use_env_variable]);
 } else {

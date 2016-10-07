@@ -2,7 +2,7 @@
 
 import express from 'express';
 import http from 'http';
-import config from './config/environment';
+import CONFIG from './config/environment';
 
 var app = express();
 var server = http.createServer(app);
@@ -12,8 +12,8 @@ require('./routes')(app);
 
 // Start server function
 function startServer() {
-    app.nodeServer = server.listen(config.PORT, config.IP, () => {
-        console.log('Express server listening on %d, in %s mode', config.PORT, app.get('env'));
+    app.nodeServer = server.listen(CONFIG.PORT, CONFIG.IP, () => {
+        console.log('Express server listening on %d, in %s mode', CONFIG.PORT, app.get('env'));
     });
 }
 

@@ -2,15 +2,15 @@
 
 let path = require('path');
 let Sequelize = require('sequelize');
-const CONFIG = require('../config/environment');
+const config = require('../config/environment');
 
 var db = {
     Sequelize,
     sequelize: new Sequelize(
-        CONFIG.SEQUELIZE.DATABASE,
-        CONFIG.SEQUELIZE.USERNAME,
-        CONFIG.SEQUELIZE.PASSWORD,
-        CONFIG.SEQUELIZE.OPTIONS
+        config.SEQUELIZE.DATABASE,
+        config.SEQUELIZE.USERNAME,
+        config.SEQUELIZE.PASSWORD,
+        config.SEQUELIZE.OPTIONS
     )
 };
 
