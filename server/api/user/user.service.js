@@ -5,12 +5,40 @@ let User = models.User;
 let Role = models.Role;
 let Profile = models.Profile;
 
-let userService = {
-    getById,
-    getByEmail,
-};
+export function getAll() {
+    return User.findAndCountAll({
+        include: [
+            {
+                model: Role,
+                attributes: ['name'],
+                as: 'role'
+            }, {
+                model: Profile,
+                attributes: ['first_name'],
+                as: 'profile'
+            }
+        ]
+    });
+}
 
-function getById(userId) {
+export function getByUuid(userUuid) {
+    return User.findOne({
+        where: {uuid: userUuid},
+        include: [
+            {
+                model: Role,
+                attributes: ['name'],
+                as: 'role'
+            }, {
+                model: Profile,
+                attributes: ['first_name'],
+                as: 'profile'
+            }
+        ]
+    });
+}
+
+export function getById(userId) {
     return User.findOne({
         where: {_id: userId},
         include: [
@@ -27,8 +55,7 @@ function getById(userId) {
     });
 }
 
-function getByEmail(userEmail) {
-    console.log(User)
+export function getByEmail(userEmail) {
     return User.findOne({
         where: {email: userEmail},
         include: [
@@ -45,4 +72,6 @@ function getByEmail(userEmail) {
     });
 }
 
-module.exports = userService;
+export function create(data) {}
+export function update(data) {}
+export function softDeleteByUuid(uuid) {}
