@@ -6,6 +6,7 @@ const grunt = require('grunt');
 import gulpLoadPlugins from 'gulp-load-plugins';
 const runSequence = require('run-sequence');
 const babel = require('gulp-babel');
+import lazypipe from 'lazypipe';
 
 var plugins = gulpLoadPlugins();
 
@@ -22,14 +23,66 @@ const paths = {
         migrations: ['migrations/**/*.js'],
         json: [`${serverPath}/**/*.json`],
         test: {
-            integration: [`${serverPath}/**/*.integration.js`, 'mocha.global.js'],
-            unit: [`${serverPath}**/*.spec.js`, 'mocha.global.js'],
+            integration: [`${serverPath}/**/*.integration.js`],
+            unit: [`${serverPath}/**/*.spec.js`],
             coverage: [`${serverPath}/**/*.spec.js`]
         }
     },
     karma: 'karma.conf.js',
     dist: 'dist'
 };
+
+gulp.task('env:all', () => {
+    let localConfig;
+    try {
+        localConfig = require(`./${serverPath}/config/local.env`);
+    } catch (e) {
+        localConfig = {};
+    }
+    plugins.env({
+        vars: localConfig
+    });
+});
+gulp.task('env:test', () => {
+    plugins.env({
+        vars: {NODE_ENV: 'test'}
+    });
+});
+gulp.task('env:prod', () => {
+    plugins.env({
+        vars: {NODE_ENV: 'production'}
+    });
+});
+
+let jasmine = lazypipe()
+    .pipe(plugins.jasmine, {
+        reporter: new require('jasmine-reporters').JUnitXmlReporter(),
+        timeout: 5000,
+        verbose: true,
+        // includeStackTrace: true,
+        errorOnFail: false
+    });
+
+gulp.task('test', cb => {
+    return runSequence('test:server', cb);
+});
+
+gulp.task('test:server', cb => {
+    runSequence(
+        'env:all',
+        'env:test',
+        'jasmine:unit',
+        cb);
+});
+
+gulp.task('jasmine:unit', () => {
+    return gulp.src(paths.server.test.unit)
+        .pipe(jasmine());
+});
+
+gulp.task('test:watch', () => {
+    return gulp.watch([`${serverPath}/**/**.js`], ['test']);
+});
 
 gulp.task('transpile:server', () => {
     return gulp.src(_.union(paths.server.scripts, paths.server.json))
