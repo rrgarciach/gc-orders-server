@@ -10,7 +10,8 @@ router.post('/', function (req, res, next) {
     passport.authenticate('local', (err, user, info) => {
         let error = err || info;
         if (error) {
-            return res.status(401).json(error);
+            console.error(error);
+            return res.status(401).json({message:error.message});
         }
         if (!user) {
             return res.status(404).json({message: 'Something went wrong, please try again.'});
