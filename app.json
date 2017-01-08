@@ -1,0 +1,35 @@
+{
+  "name": "gc-orders-server",
+  "scripts": {
+  },
+  "env": {
+    "JAWSDB_URL": {
+      "required": true
+    },
+    "MYSQL_DB": {
+      "required": true
+    },
+    "MYSQL_HOST": {
+      "required": true
+    },
+    "MYSQL_PASSWORD": {
+      "required": true
+    },
+    "MYSQL_USERNAME": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "jawsdb"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
