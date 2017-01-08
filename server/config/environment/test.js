@@ -1,6 +1,12 @@
 'use strict';
 
-const CONFIG = require('../local.env');
+let CONFIG;
+
+try {
+    CONFIG = require('../local.env');
+} catch(e) {
+    CONFIG = {};
+}
 const DB_CONFIG = CONFIG.SEQUELIZE;
 
 // Production environment configurations
