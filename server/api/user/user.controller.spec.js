@@ -23,7 +23,7 @@ describe('User Controller', () => {
 
     describe('index method', () => {
 
-        it('should have called User Service getAll', () => {
+        xit('should have called User Service getAll', () => {
             userCtrl.index();
 
             expect(userServiceStub.getAll).toHaveBeenCalled();
@@ -33,7 +33,7 @@ describe('User Controller', () => {
 
     describe('show method', () => {
 
-        it('should have called User Service getByUuid', () => {
+        xit('should have called User Service getByUuid', () => {
             userCtrl.show();
 
             expect(userServiceStub.getByUuid).toHaveBeenCalled();
@@ -43,7 +43,7 @@ describe('User Controller', () => {
 
     describe('create method', () => {
 
-        it('should have called User Service create', () => {
+        xit('should have called User Service create', () => {
             userCtrl.create();
 
             expect(userServiceStub.create).toHaveBeenCalled();
@@ -53,7 +53,7 @@ describe('User Controller', () => {
 
     describe('update method', () => {
 
-        it('should have called User Service update', () => {
+        xit('should have called User Service update', () => {
             userCtrl.update();
 
             expect(userServiceStub.update).toHaveBeenCalled();
@@ -63,7 +63,7 @@ describe('User Controller', () => {
 
     describe('destroy method', () => {
 
-        it('should have called User Service softDeleteByUuid', () => {
+        xit('should have called User Service softDeleteByUuid', () => {
             userCtrl.destroy();
 
             expect(userServiceStub.softDeleteByUuid).toHaveBeenCalled();
