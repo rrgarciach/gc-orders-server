@@ -1,7 +1,6 @@
 {
   "name": "gc-orders-server",
-  "scripts": {
-  },
+  "scripts": {},
   "env": {
     "JAWSDB_URL": {
       "required": true
@@ -22,8 +21,7 @@
       "required": true
     }
   },
-  "formation": {
-  },
+  "formation": {},
   "addons": [
     "jawsdb"
   ],
