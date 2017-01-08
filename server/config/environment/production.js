@@ -7,17 +7,6 @@ try {
     const DB_CONFIG = CONFIG.SEQUELIZE;
 
     production = {
-
-        // Server IP
-        IP: process.env.OPENSHIFT_NODEJS_IP ||
-        process.env.IP ||
-        undefined,
-
-        // Server port
-        PORT: process.env.OPENSHIFT_NODEJS_PORT ||
-        process.env.PORT ||
-        8080,
-
         // Sequelize connection options
         SEQUELIZE: {
             URI: 'mysql://',
